@@ -10,13 +10,17 @@
 
 
 # Description
+
 - Folder lock software for Windows platforms.
 
 # Features
+
 - [x] **Supports Windows platforms.**
 - [x] **Recovery and locking key for difficult situations.**
 
 # Installation
+
+> ***Follow these steps.***
 ```
 $ Download software.
 $ Right click: Run as an administrator.
@@ -33,6 +37,7 @@ $ Change "Psswrd" in line 54
 $ Save
 $ Exit
 ```
+
 # Screenshot
 
 [<img src="https://raw.githubusercontent.com/TheDarkRoot/PNGStore/master/Personal/Screenshots/WinFolderLock%2001.png" width=300>](https://raw.githubusercontent.com/TheDarkRoot/PNGStore/master/Personal/Screenshots/WinFolderLock%2001.png)
