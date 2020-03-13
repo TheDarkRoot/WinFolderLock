@@ -15,8 +15,8 @@
 
 # Features
 
-- [x] **Supports Windows platforms.**
-- [x] **Recovery and locking key for difficult situations.**
+- [x] Supports Windows platforms.
+- [x] Recovery and locking key for difficult situations.
 
 # Installation
 
