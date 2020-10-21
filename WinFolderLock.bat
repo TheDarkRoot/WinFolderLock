@@ -1,9 +1,9 @@
-@ECHO OFF
+@Echo Off
 title #TheDarkRoot (WinFolderLock)
 color 1a
-Echo ษออออออออออออออออออออออป
-Echo บ }}} #TheDarkRoot {{{ บ
-Echo ศออออออออออออออออออออออผ
+Echo รรรรรรรรรรรรรรรรรรรรรรรยป
+Echo ยบ }}} #TheDarkRoot {{{ ยบ
+Echo รรรรรรรรรรรรรรรรรรรรรรรยผ
 Echo.
 Echo Information:
 Echo }}} This program is encoded by #TheDarkRoot.
@@ -15,6 +15,25 @@ Echo.
 Echo  - Press a key to run the program...
 Echo.
 pause >nul
+:: BatchGotAdmin (Run as Admin code starts)
+REM --> Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+REM --> If error flag set, we do not have admin.
+if '%errorlevel%' NEQ '0' (
+Echo  # Requesting administrative privileges...
+goto UACPrompt
+) else ( goto gotAdmin )
+:UACPrompt
+Echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+Echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+"%temp%\getadmin.vbs"
+exit /B
+:gotAdmin
+if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+pushd "%CD%"
+CD /D "%~dp0"
+:: BatchGotAdmin (Run as Admin code ends)
+:: Your codes should start from the following line
 if EXIST "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}" goto UNLOCK
 if NOT EXIST WinFolder  goto MDWinFolder
 :CONFIRM
@@ -28,9 +47,9 @@ if %cho%==lock goto LOCK
 if %cho%==LOCK goto LOCK
 Echo.
 Color 0c
-Echo    ษอออออออป
-Echo    บ Error บ
-Echo    ศอออออออผ
+Echo    รรรรรรรรยป
+Echo    ยบ Error ยบ
+Echo    รรรรรรรรยผ
 Echo.
 goto CONFIRM1
 :LOCK
@@ -38,9 +57,9 @@ ren WinFolder  "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}"
 attrib +h +s "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}"
 color 1a
 Echo.
-Echo    ษอออออออออออออออออออป
-Echo    บ * Folder Lock: On บ
-Echo    ศอออออออออออออออออออผ
+Echo    รรรรรรรรรรรรรรรรรรรรยป
+Echo    ยบ * Folder Lock: On ยบ
+Echo    รรรรรรรรรรรรรรรรรรรรยผ
 goto End
 :UNLOCK
 color 0c
@@ -57,20 +76,20 @@ ren "Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}" WinFolder
 shutdown -a
 color 1a
 Echo.
-Echo    ษออออออออออออออออออออป
-Echo    บ * Folder Lock: Off บ
-Echo    ศออออออออออออออออออออผ
+Echo    รรรรรรรรรรรรรรรรรรรรรยป
+Echo    ยบ * Folder Lock: Off ยบ
+Echo    รรรรรรรรรรรรรรรรรรรรรยผ
 goto End
 :FAIL
 Echo
-Echo    ษออออออออออออออออออป
-Echo    บ * Don't Password บ
-Echo    ศออออออออออออออออออผ
+Echo    รรรรรรรรรรรรรรรรรรรยป
+Echo    ยบ * Don't Password ยบ
+Echo    รรรรรรรรรรรรรรรรรรรยผ
 goto End
 :MDWinFolder
 md WinFolder
-Echo    ษอออออออออออออออออป
-Echo    บ * Create Folder บ
-Echo    ศอออออออออออออออออผ
+Echo    รรรรรรรรรรรรรรรรรรยป
+Echo    ยบ * Create Folder ยบ
+Echo    รรรรรรรรรรรรรรรรรรยผ
 goto End
 :End
