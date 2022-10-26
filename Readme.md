@@ -36,11 +36,9 @@ $ Press a key to continue.
 
 # Change password:
 $ WinFolderLock
-$ Right Click
-$ Edit
-$ Change "Psswrd" in line 54
-$ Save
-$ Exit
+$ Right Click / Edit
+$ Change "Psswrd" in line 73
+$ Save / Exit
 ```
 
 # Screenshot
